@@ -1,7 +1,8 @@
 // ./pages/employee-list-view.js
 import { LitElement, html } from 'lit';
 import { formStyles, buttonStyles, inputStyles } from '../styles';
-
+import { t } from '../utils/i18n';
+import { useLanguageStore } from '../stores';
 export class EmployeeForm extends LitElement {
   static get properties() {
     return {
@@ -25,6 +26,11 @@ export class EmployeeForm extends LitElement {
       position: ''
     };
     this.errors = {};
+
+    // Subscribe to language changes
+    this.languageSubscription = useLanguageStore.subscribe(
+        () => this.requestUpdate()
+      );
   }
 
   willUpdate(changedProperties) {
@@ -122,7 +128,7 @@ export class EmployeeForm extends LitElement {
     <form @submit=${this.handleSubmit}>
         <div class="form-row">
         <div class="form-group">
-          <label for="firstName">First Name</label>
+          <label for="firstName">${t('firstName')}</label>
           <input 
             type="text" 
             id="firstName" 
@@ -136,7 +142,7 @@ export class EmployeeForm extends LitElement {
         </div>
 
         <div class="form-group">
-          <label for="lastName">Last Name</label>
+          <label for="lastName">${t('lastName')}</label>
           <input 
             type="text" 
             id="lastName" 
@@ -151,7 +157,7 @@ export class EmployeeForm extends LitElement {
         </div>
         <div class="form-row">
         <div class="form-group">
-          <label for="dateOfEmployment">Date of Employment</label>
+          <label for="dateOfEmployment">${t('dateOfEmployment')}</label>
           <input 
             type="date" 
             id="dateOfEmployment" 
@@ -165,7 +171,7 @@ export class EmployeeForm extends LitElement {
         </div>
 
         <div class="form-group">
-          <label for="dateOfBirth">Date of Birth</label>
+          <label for="dateOfBirth">${t('dateOfBirth')}</label>
           <input 
             type="date" 
             id="dateOfBirth" 
@@ -180,7 +186,7 @@ export class EmployeeForm extends LitElement {
         </div>
         <div class="form-row">
         <div class="form-group">
-          <label for="phone">Phone</label>
+          <label for="phone">${t('phone')}</label>
           <input 
             type="tel" 
             id="phone" 
@@ -194,7 +200,7 @@ export class EmployeeForm extends LitElement {
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">${t('email')}</label>
           <input 
             type="email" 
             id="email" 
@@ -209,7 +215,7 @@ export class EmployeeForm extends LitElement {
         </div>
         <div class="form-row">
         <div class="form-group">
-          <label for="department">Department</label>
+          <label for="department">${t('department')}</label>
           <select 
             id="department" 
             name="department"
@@ -218,15 +224,15 @@ export class EmployeeForm extends LitElement {
             class=${this.errors.department ? 'error' : ''}
             required
           >
-            <option value="">Select Department</option>
-            <option value="Analytics">Analytics</option>
-            <option value="Tech">Tech</option>
+            <option value="">${t('selectDepartment')}</option>
+            <option value="Analytics">${t('analytics')}</option>
+            <option value="Tech">${t('tech')}</option>
           </select>
           ${this.errors.department ? html`<div class="error-message">${this.errors.department}</div>` : ''}
         </div>
 
         <div class="form-group">
-          <label for="position">Position</label>
+          <label for="position">${t('position')}</label>
           <select 
             id="position" 
             name="position"
@@ -235,17 +241,17 @@ export class EmployeeForm extends LitElement {
             class=${this.errors.position ? 'error' : ''}
             required
           >
-            <option value="">Select Position</option>
-            <option value="Junior">Junior</option>
-            <option value="Medior">Medior</option>
-            <option value="Senior">Senior</option>
+            <option value="">${t('selectPosition')}</option>
+            <option value="Junior">${t('junior')}</option>
+            <option value="Medior">${t('medior')}</option>
+            <option value="Senior">${t('senior')}</option>
           </select>
           ${this.errors.position ? html`<div class="error-message">${this.errors.position}</div>` : ''}
         </div>
         </div>
         <div class="form-submit-btn">
             <button class="primary-btn" type="submit">
-                ${this.isUpdateForm ? 'Update' : 'Submit'}
+                ${this.isUpdateForm ? `${t('update')}` : `${t('submit')}`}
             </button>
         </div>
       </form>

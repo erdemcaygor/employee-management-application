@@ -1,8 +1,9 @@
 // ./pages/employee-list-view.js
 import { LitElement, html } from 'lit';
 import { tableStyles } from '../styles';
-import { useEmployeeStore } from '../stores/employee-store';
+import { useEmployeeStore, useLanguageStore } from '../stores';
 import { editIcon, deleteIcon } from './icons';
+import { t } from '../utils/i18n';
 
 export class EmployeeTableView extends LitElement {
   
@@ -11,18 +12,23 @@ export class EmployeeTableView extends LitElement {
   constructor() {
     super();
     this.employees = useEmployeeStore.getState().employees;
-    // Initial subscription
+    // Subscribe to employees
     this.employeesSubscription = useEmployeeStore.subscribe(
       state => {
         this.employees = state.employees;
         this.requestUpdate();
       }
     );
+    // Subscribe to language changes
+    this.languageSubscription = useLanguageStore.subscribe(
+      () => this.requestUpdate()
+    );
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     this.employeesSubscription();
+    this.languageSubscription();
   }
 
   static get properties() {
@@ -41,15 +47,15 @@ export class EmployeeTableView extends LitElement {
     <table>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Employment</th>
-            <th>Date of Birth</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>Actions</th>
+            <th>${t('firstName')}</th>
+            <th>${t('lastName')}</th>
+            <th>${t('dateOfEmployment')}</th>
+            <th>${t('dateOfBirth')}</th>
+            <th>${t('phone')}</th>
+            <th>${t('email')}</th>
+            <th>${t('department')}</th>
+            <th>${t('position')}</th>
+            <th>${t('actions')}</th>
           </tr>
         </thead>
         <tbody>

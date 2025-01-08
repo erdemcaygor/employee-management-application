@@ -1,6 +1,9 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
 import { employeeIcon, plusIcon } from './icons';
+import './language-select';
+import { t } from '../utils/i18n';
+import { useLanguageStore } from '../stores/lang-store';
 export class CustomHeader extends LitElement {
   static styles = [
     css`
@@ -43,6 +46,18 @@ export class CustomHeader extends LitElement {
     `,
   ];
 
+  constructor() {
+    super();
+    this.languageSubscription = useLanguageStore.subscribe(
+      () => this.requestUpdate()
+    );
+    this.languageSubscription();
+  }
+
+  disconnectedCallback() {
+    this.languageSubscription();
+  }
+
   render() {
     return html`
     <div class="header">
@@ -51,12 +66,13 @@ export class CustomHeader extends LitElement {
         <div class="header-actions">
         <a href="/" class="header-nav-item">
             <span>${employeeIcon}</span>
-            Employees
+            ${t('employees')}
         </a>
         <a href="/new-employee" class="header-nav-item">
             <span>${plusIcon}</span>
-            Add New
+            ${t('addNew')}
         </a>
+        <language-select></language-select>
         </div>
       </div>
     </div>  

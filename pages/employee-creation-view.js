@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit';
 import '../components/employee-form';
 import { useEmployeeStore } from '../stores/employee-store';
 import { Router } from '@vaadin/router';
-
+import { t } from '../utils/i18n';
 export class EmployeeCreationView extends LitElement {
   static styles = [
     css`
@@ -32,7 +32,7 @@ export class EmployeeCreationView extends LitElement {
 
   render() {
     return html`
-    <base-page-template header="Create New Employee">
+    <base-page-template header=${t('createNewEmployee')}>
         <employee-form 
             @employee-submit=${this.handleEmployeeSubmit}>
         </employee-form>
