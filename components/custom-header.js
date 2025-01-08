@@ -37,8 +37,12 @@ export class CustomHeader extends LitElement {
       <div class="header-content">
         <span>Employee Management</span>
         <div class="header-actions">
-            <button>New Employee</button>
-            <button>Logout</button>
+        <a href="/">
+            <button>Employees</button>
+        </a>
+        <a href="/new-employee">
+            <button>Add New</button>
+        </a>
         </div>
       </div>
     </div>  

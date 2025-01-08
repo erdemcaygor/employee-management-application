@@ -6,8 +6,9 @@
 
 import {LitElement, html} from 'lit';
 import {Router} from '@vaadin/router';
-import {mainViewStyles} from './styles';
+import {baseStyles} from './styles';
 import './pages/employee-list-view.js';
+import './pages/employee-creation-view.js';
 import './components/custom-header.js';
 /**
  * An example element.
@@ -15,7 +16,7 @@ import './components/custom-header.js';
 export class EmployeeManagementAppInit extends LitElement {
 
   static styles = [
-    mainViewStyles
+    baseStyles
   ];
 
   constructor() {

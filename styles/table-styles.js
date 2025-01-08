@@ -3,10 +3,13 @@ import { css } from 'lit';
 export const tableStyles = css`
         :host {
         display: block;
-        padding: 0;
-        margin: 0;
       }
-
+      .table-container {
+        overflow-x: auto;
+        padding: 0.5rem 1rem;
+        background-color: white;
+        border-radius: 0.5rem;
+      }
       table {
         width: 100%;
         border-collapse: collapse;
@@ -16,12 +19,16 @@ export const tableStyles = css`
       th, td {
         padding: 0.75rem;
         text-align: left;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e9e6e6;
       }
 
       th {
-        background-color: #f5f5f5;
-        font-weight: bold;
+        color: var(--themeColor);
+        font-weight: 500;
+      }
+
+      td {
+        color: gray;
       }
 
       tr:hover {

@@ -6,8 +6,9 @@ import { useEmployeeStore } from '../stores/employee-store';
 export class EmployeeTableView extends LitElement {
   constructor() {
     super();
+    this.employees = useEmployeeStore.getState().employees;
     // Initial subscription
-    this.unsubscribe = useEmployeeStore.subscribe(
+    this.employeesSubscription = useEmployeeStore.subscribe(
       state => {
         this.employees = state.employees;
         this.requestUpdate();
@@ -17,13 +18,12 @@ export class EmployeeTableView extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    // Cleanup subscription
-    this.unsubscribe();
+    this.employeesSubscription();
   }
 
   static get properties() {
     return {
-      employees: { type: Array }
+      employees: { type: Array, state: true }
     };
   }
 
@@ -35,7 +35,8 @@ export class EmployeeTableView extends LitElement {
 
   render() {
     return html`
-      <table>
+    <div class="table-container">
+    <table>
         <thead>
           <tr>
             <th>First Name</th>
@@ -50,7 +51,7 @@ export class EmployeeTableView extends LitElement {
           </tr>
         </thead>
         <tbody>
-          ${this.employees.map(employee => html`
+          ${this.employees?.map(employee => html`
             <tr>
               <td>${employee.firstName}</td>
               <td>${employee.lastName}</td>
@@ -68,6 +69,7 @@ export class EmployeeTableView extends LitElement {
           `)}
         </tbody>
       </table>
+    </div>
     `;
   }
 }
