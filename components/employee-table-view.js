@@ -2,8 +2,12 @@
 import { LitElement, html } from 'lit';
 import { tableStyles } from '../styles';
 import { useEmployeeStore } from '../stores/employee-store';
+import { editIcon, deleteIcon } from './icons';
 
 export class EmployeeTableView extends LitElement {
+  
+  static styles = [tableStyles];
+
   constructor() {
     super();
     this.employees = useEmployeeStore.getState().employees;
@@ -26,8 +30,6 @@ export class EmployeeTableView extends LitElement {
       employees: { type: Array, state: true }
     };
   }
-
-  static styles = [tableStyles];
 
   handleDelete(id) {
     useEmployeeStore.getState().deleteEmployee(id);
@@ -62,10 +64,12 @@ export class EmployeeTableView extends LitElement {
               <td>${employee.department}</td>
               <td>${employee.position}</td>
               <td>
-                <a href="/employees/${employee.id}">
-                    <button>Edit</button>
-                </a>
-                <button @click=${() => this.handleDelete(employee.id)}>Delete</button>
+                <div class="actions">
+                    <a href="/employees/${employee.id}" class="edit-icon">
+                        <span>${editIcon}</span>
+                    </a>
+                    <span @click=${() => this.handleDelete(employee.id)} class="delete-icon">${deleteIcon}</span>
+                </div>
               </td>
             </tr>
           `)}

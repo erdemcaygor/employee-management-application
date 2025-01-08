@@ -33,4 +33,23 @@ export const tableStyles = css`
 
       tr:hover {
         background-color: #f9f9f9;
-      }`;
+      }
+      .actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .edit-icon, .delete-icon {
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: all 0.2s;
+      }
+
+      .edit-icon:hover {
+        background-color: var(--themeColor)1a; /* 10% opacity */
+      }
+
+      .delete-icon:hover {
+        background-color: var(--themeColor)1a; /* 10% opacity */
+      }
+      `;

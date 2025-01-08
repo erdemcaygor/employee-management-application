@@ -13,7 +13,7 @@ export const baseStyles = css`
         grid-row: 2;
        }
        button.primary {
-        background-color: #ff6200;
+        background-color: var(--themeColor);
         color: white;
         border: none;
         border-radius: 4px;

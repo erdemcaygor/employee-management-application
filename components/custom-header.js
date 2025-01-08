@@ -1,6 +1,6 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
-
+import { employeeIcon, plusIcon } from './icons';
 export class CustomHeader extends LitElement {
   static styles = [
     css`
@@ -28,6 +28,18 @@ export class CustomHeader extends LitElement {
         padding: 0.5rem 1rem;
         cursor: pointer;
       }
+      .header-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--themeColor);
+        padding: 0.5rem;
+      }
+      .header-nav-item:hover {
+        background-color: var(--lightGrey);
+        cursor: pointer;
+      }
     `,
   ];
 
@@ -37,11 +49,13 @@ export class CustomHeader extends LitElement {
       <div class="header-content">
         <span>Employee Management</span>
         <div class="header-actions">
-        <a href="/">
-            <button>Employees</button>
+        <a href="/" class="header-nav-item">
+            <span>${employeeIcon}</span>
+            Employees
         </a>
-        <a href="/new-employee">
-            <button>Add New</button>
+        <a href="/new-employee" class="header-nav-item">
+            <span>${plusIcon}</span>
+            Add New
         </a>
         </div>
       </div>
