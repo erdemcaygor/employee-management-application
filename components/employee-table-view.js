@@ -62,7 +62,9 @@ export class EmployeeTableView extends LitElement {
               <td>${employee.department}</td>
               <td>${employee.position}</td>
               <td>
-                <button>Edit</button>
+                <a href="/employees/${employee.id}">
+                    <button>Edit</button>
+                </a>
                 <button @click=${() => this.handleDelete(employee.id)}>Delete</button>
               </td>
             </tr>

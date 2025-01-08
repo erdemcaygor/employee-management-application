@@ -24,7 +24,6 @@ export class EmployeeCreationView extends LitElement {
 
     // Add to store
     const addEmployee = useEmployeeStore.getState().addEmployee;
-    console.log(newEmployee);
     addEmployee(newEmployee);
 
     // Navigate back to employee list

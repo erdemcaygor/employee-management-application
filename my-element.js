@@ -9,6 +9,7 @@ import {Router} from '@vaadin/router';
 import {baseStyles} from './styles';
 import './pages/employee-list-view.js';
 import './pages/employee-creation-view.js';
+import './pages/employee-detail-view.js';
 import './components/custom-header.js';
 /**
  * An example element.
@@ -29,7 +30,7 @@ export class EmployeeManagementAppInit extends LitElement {
     router.setRoutes([
       { path: '/', component: 'employee-list-view' },
       { path: '/new-employee', component: 'employee-creation-view' },
-      { path: '/employee-detail/:employeeID', component: 'employee-detail-view' },
+      { path: '/employees/:id', component: 'employee-detail-view' },
       { path: '(.*)', redirect: '/' },
     ]);
   }

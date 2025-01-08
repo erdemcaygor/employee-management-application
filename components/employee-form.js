@@ -1,19 +1,21 @@
 // ./pages/employee-list-view.js
-import { LitElement, html, css } from 'lit';
-import { formStyles, buttonStyles } from '../styles';
+import { LitElement, html } from 'lit';
+import { formStyles, buttonStyles, inputStyles } from '../styles';
 
 export class EmployeeForm extends LitElement {
   static get properties() {
     return {
       formData: { type: Object },
       errors: { type: Object },
+      isUpdateForm: { type: Boolean, default: false },
+      employee: { type: Object }
     };
   }
 
   constructor() {
     super();
     this.formData = {
-      firstName: '',
+      firstName: this.employee?.firstName || '',
       lastName: '',
       dateOfEmployment: '',
       dateOfBirth: '',
@@ -23,6 +25,22 @@ export class EmployeeForm extends LitElement {
       position: ''
     };
     this.errors = {};
+  }
+
+  willUpdate(changedProperties) {
+    if (changedProperties.has('employee') && this.employee) {
+      this.isUpdateForm = true;
+      this.formData = {
+        firstName: this.employee.firstName || '',
+        lastName: this.employee.lastName || '',
+        dateOfEmployment: this.employee.dateOfEmployment || '',
+        dateOfBirth: this.employee.dateOfBirth || '',
+        phone: this.employee.phone || '',
+        email: this.employee.email || '',
+        department: this.employee.department || '',
+        position: this.employee.position || ''
+      };
+    }
   }
 
   validateForm() {
@@ -91,7 +109,7 @@ export class EmployeeForm extends LitElement {
     e.preventDefault();
     if (this.validateForm()) {
       this.dispatchEvent(new CustomEvent('employee-submit', {
-        detail: this.formData,
+        detail: {...this.formData, id: this.employee?.id},
         bubbles: true,
         composed: true
       }));
@@ -226,7 +244,9 @@ export class EmployeeForm extends LitElement {
         </div>
         </div>
         <div class="form-submit-btn">
-            <button class="primary-btn" type="submit">Submit</button>
+            <button class="primary-btn" type="submit">
+                ${this.isUpdateForm ? 'Update' : 'Submit'}
+            </button>
         </div>
       </form>
     </div>
@@ -235,7 +255,8 @@ export class EmployeeForm extends LitElement {
 
   static styles = [
     formStyles,
-    buttonStyles
+    buttonStyles,
+    inputStyles
   ];
 }
 
