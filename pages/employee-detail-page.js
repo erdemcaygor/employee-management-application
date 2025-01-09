@@ -4,7 +4,8 @@ import { Router } from '@vaadin/router';
 import { Notification } from '@vaadin/vaadin-notification';
 import { useEmployeeStore, useLanguageStore } from '../stores';
 import { t } from '../utils/i18n';
-export class EmployeeDetailView extends LitElement {
+
+export class EmployeeDetailPage extends LitElement {
   static styles = [
     css`
       :host {
@@ -70,4 +71,4 @@ export class EmployeeDetailView extends LitElement {
     `;
   }
 }
-customElements.define('employee-detail-view', EmployeeDetailView);
+customElements.define('employee-detail-page', EmployeeDetailPage);

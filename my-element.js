@@ -7,9 +7,9 @@
 import {LitElement, html} from 'lit';
 import {Router} from '@vaadin/router';
 import {baseStyles} from './styles';
-import './pages/employee-list-view.js';
-import './pages/employee-creation-view.js';
-import './pages/employee-detail-view.js';
+import './pages/employee-list-page.js';
+import './pages/employee-creation-page.js';
+import './pages/employee-detail-page.js';
 import './components/custom-header.js';
 /**
  * An example element.
@@ -28,9 +28,9 @@ export class EmployeeManagementAppInit extends LitElement {
     super.firstUpdated();
     const router = new Router(this.shadowRoot.querySelector('#outlet'));
     router.setRoutes([
-      { path: '/', component: 'employee-list-view' },
-      { path: '/new-employee', component: 'employee-creation-view' },
-      { path: '/employees/:id', component: 'employee-detail-view' },
+      { path: '/', component: 'employee-list-page' },
+      { path: '/new-employee', component: 'employee-creation-page' },
+      { path: '/employees/:id', component: 'employee-detail-page' },
       { path: '(.*)', redirect: '/' },
     ]);
   }

@@ -1,7 +1,7 @@
 // ./pages/employee-list-view.js
 import { LitElement, html } from 'lit';
 import { tableStyles } from '../styles';
-import { useEmployeeStore, useLanguageStore } from '../stores';
+import { useLanguageStore } from '../stores';
 import { editIcon, deleteIcon } from './icons';
 import { t } from '../utils/i18n';
 
@@ -9,16 +9,14 @@ export class EmployeeTableView extends LitElement {
   
   static styles = [tableStyles];
 
+  static get properties() {
+    return {
+      employees: { type: Array }
+    };
+  }
+
   constructor() {
     super();
-    this.employees = useEmployeeStore.getState().employees;
-    // Subscribe to employees
-    this.employeesSubscription = useEmployeeStore.subscribe(
-      state => {
-        this.employees = state.employees;
-        this.requestUpdate();
-      }
-    );
     // Subscribe to language changes
     this.languageSubscription = useLanguageStore.subscribe(
       () => this.requestUpdate()
@@ -31,14 +29,8 @@ export class EmployeeTableView extends LitElement {
     this.languageSubscription();
   }
 
-  static get properties() {
-    return {
-      employees: { type: Array, state: true }
-    };
-  }
-
   handleDelete(id) {
-    useEmployeeStore.getState().deleteEmployee(id);
+    this.dispatchEvent(new CustomEvent('delete-employee', { detail: { id } }));
   }
 
   render() {

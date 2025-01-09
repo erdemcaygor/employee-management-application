@@ -25,7 +25,8 @@ export const translations = {
       createNewEmployee: 'Create New Employee',
       actions: 'Actions',
       employeeCreatedSuccessfully: 'Employee created successfully!',
-      employeeUpdatedSuccessfully: 'Employee updated successfully!'
+      employeeUpdatedSuccessfully: 'Employee updated successfully!',
+      employeeNotFound: 'Employee not found!'
     },
     tr: {
       employees: 'Çalışanlar',
@@ -53,6 +54,7 @@ export const translations = {
       createNewEmployee: 'Yeni Çalışan Ekle',
       actions: 'İşlemler',
       employeeCreatedSuccessfully: 'Çalışan başarıyla oluşturuldu!',
-      employeeUpdatedSuccessfully: 'Çalışan başarıyla güncellendi!'
+      employeeUpdatedSuccessfully: 'Çalışan başarıyla güncellendi!',
+      employeeNotFound: 'Çalışan bulunamadı!'
     }
   };

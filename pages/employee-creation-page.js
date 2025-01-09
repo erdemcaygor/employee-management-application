@@ -6,7 +6,7 @@ import { Router } from '@vaadin/router';
 import { t } from '../utils/i18n';
 import { Notification } from '@vaadin/vaadin-notification';
 
-export class EmployeeCreationView extends LitElement {
+export class EmployeeCreationPage extends LitElement {
   
     static styles = [
     css`
@@ -62,4 +62,4 @@ export class EmployeeCreationView extends LitElement {
   }
 }
 
-customElements.define('employee-creation-view', EmployeeCreationView);
+customElements.define('employee-creation-page', EmployeeCreationPage);
