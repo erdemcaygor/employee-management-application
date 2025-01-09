@@ -51,7 +51,6 @@ export class CustomHeader extends LitElement {
     this.languageSubscription = useLanguageStore.subscribe(
       () => this.requestUpdate()
     );
-    this.languageSubscription();
   }
 
   disconnectedCallback() {

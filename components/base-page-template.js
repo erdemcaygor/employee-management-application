@@ -1,6 +1,5 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
-
 export class BasePageTemplate extends LitElement {
   constructor() {
     super();

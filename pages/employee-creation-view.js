@@ -1,19 +1,31 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
 import '../components/employee-form';
-import { useEmployeeStore } from '../stores/employee-store';
+import { useEmployeeStore, useLanguageStore } from '../stores';
 import { Router } from '@vaadin/router';
 import { t } from '../utils/i18n';
 import { Notification } from '@vaadin/vaadin-notification';
 
 export class EmployeeCreationView extends LitElement {
-  static styles = [
+  
+    static styles = [
     css`
       :host {
         display: block;
       }
     `,
   ];
+
+  constructor() {
+    super();
+    this.languageSubscription = useLanguageStore.subscribe(
+      () => this.requestUpdate()
+    );
+  }
+
+  disconnectedCallback() {
+    this.languageSubscription();
+  }
 
   handleEmployeeSubmit(event) {
     const employeeData = event.detail;

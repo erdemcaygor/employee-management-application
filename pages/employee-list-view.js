@@ -15,7 +15,6 @@ export class EmployeeListView extends LitElement {
     this.languageSubscription = useLanguageStore.subscribe(
       () => this.requestUpdate()
     );
-    this.languageSubscription();
   }
 
   disconnectedCallback() {

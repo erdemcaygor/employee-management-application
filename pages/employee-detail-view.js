@@ -2,7 +2,7 @@
 import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
 import { Notification } from '@vaadin/vaadin-notification';
-import { useEmployeeStore } from '../stores/employee-store';
+import { useEmployeeStore, useLanguageStore } from '../stores';
 import { t } from '../utils/i18n';
 export class EmployeeDetailView extends LitElement {
   static styles = [
@@ -22,6 +22,17 @@ export class EmployeeDetailView extends LitElement {
     return {
       employee: { type: Object }
     };
+  }
+
+  constructor() {
+    super();
+    this.languageSubscription = useLanguageStore.subscribe(
+      () => this.requestUpdate()
+    );
+  }
+
+  disconnectedCallback() {
+    this.languageSubscription();
   }
 
   onBeforeEnter(location) {
