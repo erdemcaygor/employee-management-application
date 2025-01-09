@@ -69,7 +69,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 #### Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run serve` - Start development server
 
 ### License
 
