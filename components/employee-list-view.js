@@ -29,8 +29,8 @@ export class EmployeeListView extends LitElement {
     this.languageSubscription();
   }
 
-  handleDelete(id) {
-    this.dispatchEvent(new CustomEvent('delete-employee', { detail: { id } }));
+  handleDelete(employee) {
+    this.dispatchEvent(new CustomEvent('delete-employee', { detail: { employee } }));
   }
 
   render() {
@@ -42,7 +42,7 @@ export class EmployeeListView extends LitElement {
               <a href="/employees/${employee.id}" class="action-button">
                 ${editIcon}
               </a>
-              <div class="action-button" @click=${() => this.handleDelete(employee.id)}>
+              <div class="action-button" @click=${() => this.handleDelete(employee)}>
                 ${deleteIcon}
               </div>
             </div>
