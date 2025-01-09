@@ -28,7 +28,7 @@ export class CustomHeader extends LitElement {
       .header-actions button {
         background-color: #f5f5f5;
         border: none;
-        padding: 0.5rem 1rem;
+        padding: 0.25rem 0.5rem;
         cursor: pointer;
       }
       .header-nav-item {
@@ -38,6 +38,7 @@ export class CustomHeader extends LitElement {
         text-decoration: none;
         color: var(--themeColor);
         padding: 0.5rem;
+        font-size: 0.75rem;
       }
       .header-nav-item:hover {
         background-color: var(--lightGrey);

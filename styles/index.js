@@ -4,3 +4,4 @@ export * from './form-styles';
 export * from './employee-list-view-styles';
 export * from './button-styles';
 export * from './input-styles';
+export * from './lang-select-styles';
