@@ -71,9 +71,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run preview` - Preview production build
 - `npm run test` - Run tests
-- `npm run lint` - Run linting
 
 ### License
 
