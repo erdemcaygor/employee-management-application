@@ -18,7 +18,7 @@ export class BasePageTemplate extends LitElement {
       }
       .container {
         display: grid;
-        grid-template-columns: [main-start] 1fr [content-start] minmax(0, 100rem) [content-end] 1fr [main-end];
+        grid-template-columns: [main-start] 1fr [content-start] minmax(0, 80rem) [content-end] 1fr [main-end];
         padding: 0 1rem;
       }
       .content {

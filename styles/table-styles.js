@@ -19,6 +19,7 @@ export const tableStyles = css`
       th, td {
         padding: 0.75rem;
         text-align: left;
+        font-size: 0.75rem;
         border-bottom: 1px solid #e9e6e6;
       }
 

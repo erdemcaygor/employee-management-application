@@ -4,7 +4,7 @@ export const inputStyles = css`
   input, select {
     border-radius: 0.25rem;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-family: 'Open Sans', sans-serif;
   }
   input:focus, select:focus {
@@ -21,7 +21,7 @@ export const inputStyles = css`
     box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
   }
   label {
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: bold;
   }
 `;
