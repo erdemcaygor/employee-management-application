@@ -4,6 +4,8 @@ import '../components/employee-form';
 import { useEmployeeStore } from '../stores/employee-store';
 import { Router } from '@vaadin/router';
 import { t } from '../utils/i18n';
+import { Notification } from '@vaadin/vaadin-notification';
+
 export class EmployeeCreationView extends LitElement {
   static styles = [
     css`
@@ -25,6 +27,13 @@ export class EmployeeCreationView extends LitElement {
     // Add to store
     const addEmployee = useEmployeeStore.getState().addEmployee;
     addEmployee(newEmployee);
+
+    // Show notification
+    Notification.show(t('employeeCreatedSuccessfully'), {
+        position: 'top-end',
+        duration: 4000,
+        theme: 'success',
+      });
 
     // Navigate back to employee list
     Router.go('/');

@@ -23,7 +23,9 @@ export const translations = {
       selectPosition: 'Select Position',
       selectDepartment: 'Select Department',
       createNewEmployee: 'Create New Employee',
-      actions: 'Actions'
+      actions: 'Actions',
+      employeeCreatedSuccessfully: 'Employee created successfully!',
+      employeeUpdatedSuccessfully: 'Employee updated successfully!'
     },
     tr: {
       employees: 'Çalışanlar',
@@ -49,6 +51,8 @@ export const translations = {
       selectPosition: 'Pozisyon Seç',
       selectDepartment: 'Departman Seç',
       createNewEmployee: 'Yeni Çalışan Ekle',
-      actions: 'İşlemler'
+      actions: 'İşlemler',
+      employeeCreatedSuccessfully: 'Çalışan başarıyla oluşturuldu!',
+      employeeUpdatedSuccessfully: 'Çalışan başarıyla güncellendi!'
     }
   };

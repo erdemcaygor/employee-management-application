@@ -1,8 +1,9 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
-
+import { Notification } from '@vaadin/vaadin-notification';
 import { useEmployeeStore } from '../stores/employee-store';
+import { t } from '../utils/i18n';
 export class EmployeeDetailView extends LitElement {
   static styles = [
     css`
@@ -32,7 +33,18 @@ export class EmployeeDetailView extends LitElement {
   handleEmployeeSubmit(event) {
     const employeeData = event.detail;
     const updateEmployee = useEmployeeStore.getState().updateEmployee;
+
+    // Update employee in store
     updateEmployee(employeeData.id, employeeData);
+
+    // Show notification
+    Notification.show(t('employeeUpdatedSuccessfully'), {
+        position: 'top-end',
+        duration: 4000,
+        theme: 'success',
+    });
+
+    // Navigate back to employee list
     Router.go('/');
   }
 

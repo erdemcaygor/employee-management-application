@@ -40,6 +40,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@vaadin/router": "^2.0.0",
+    "@vaadin/vaadin-notification": "^23.5.11",
     "lit": "^3.2.0",
     "zustand": "^5.0.3"
   },
