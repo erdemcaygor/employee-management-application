@@ -10,8 +10,6 @@ A modern web application for employee management built with Lit Elements. Featur
   - Update employee information
   - Delete employees with confirmation
 - 🌐 Multilingual Support (English/Turkish)
-- 🎨 Theme Customization
-- 📱 Responsive Design
 
 ## Tech Stack
 
@@ -50,4 +48,33 @@ A modern web application for employee management built with Lit Elements. Featur
 ### Installation
 
 1. Clone the repository
+   ```bash
+   git clone https://github.com/erdemcaygor/employee-management.git
+   cd employee-management
+   ```
+
 2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Start the development server
+   ```bash
+   npm run dev
+   ```
+
+### Usage
+
+Visit `http://localhost:8000` in your browser to access the application.
+
+#### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run test` - Run tests
+- `npm run lint` - Run linting
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
