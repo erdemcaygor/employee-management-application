@@ -49,8 +49,8 @@ A modern web application for employee management built with Lit Elements. Featur
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/erdemcaygor/employee-management.git
-   cd employee-management
+   git clone https://github.com/erdemcaygor/employee-management-application.git
+   cd employee-management-application
    ```
 
 2. Install dependencies
