@@ -4,7 +4,7 @@ import '../components/employee-form';
 import { useEmployeeStore, useLanguageStore } from '../stores';
 import { Router } from '@vaadin/router';
 import { t } from '../utils/i18n';
-import { Notification } from '@vaadin/vaadin-notification';
+import { Notification } from '@vaadin/notification';
 
 export class EmployeeCreationPage extends LitElement {
   

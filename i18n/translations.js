@@ -26,7 +26,11 @@ export const translations = {
       actions: 'Actions',
       employeeCreatedSuccessfully: 'Employee created successfully!',
       employeeUpdatedSuccessfully: 'Employee updated successfully!',
-      employeeNotFound: 'Employee not found!'
+      employeeNotFound: 'Employee not found!',
+      employeeDeletedSuccessfully: 'Employee deleted successfully!',
+      deleteConfirmation: 'Delete Confirmation',
+      deleteEmployeeConfirm: 'Selected employee record of ${name} ${lastName} will be deleted permanently.',
+      areYouSure: 'Are you sure?'
     },
     tr: {
       employees: 'Çalışanlar',
@@ -55,6 +59,10 @@ export const translations = {
       actions: 'İşlemler',
       employeeCreatedSuccessfully: 'Çalışan başarıyla oluşturuldu!',
       employeeUpdatedSuccessfully: 'Çalışan başarıyla güncellendi!',
-      employeeNotFound: 'Çalışan bulunamadı!'
+      employeeNotFound: 'Çalışan bulunamadı!',
+      employeeDeletedSuccessfully: 'Çalışan başarıyla silindi!',
+      deleteConfirmation: 'Silme Onayı {name} {lastName}',
+      deleteEmployeeConfirm: 'Seçilen çalışan kaydı ${name} ${lastName} kalıcı olarak silinecektir.',
+      areYouSure: 'Emin misiniz?'
     }
   };

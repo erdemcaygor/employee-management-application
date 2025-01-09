@@ -26,7 +26,6 @@ export class EmployeeListView extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.employeesSubscription();
     this.languageSubscription();
   }
 

@@ -1,7 +1,7 @@
 // ./pages/employee-list-view.js
 import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
-import { Notification } from '@vaadin/vaadin-notification';
+import { Notification } from '@vaadin/notification';
 import { useEmployeeStore, useLanguageStore } from '../stores';
 import { t } from '../utils/i18n';
 

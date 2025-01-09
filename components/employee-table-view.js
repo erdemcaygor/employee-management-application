@@ -25,12 +25,11 @@ export class EmployeeTableView extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.employeesSubscription();
     this.languageSubscription();
   }
 
-  handleDelete(id) {
-    this.dispatchEvent(new CustomEvent('delete-employee', { detail: { id } }));
+  handleDelete(employee) {
+    this.dispatchEvent(new CustomEvent('delete-employee', { detail: { employee } }));
   }
 
   render() {
@@ -66,7 +65,7 @@ export class EmployeeTableView extends LitElement {
                     <a href="/employees/${employee.id}" class="edit-icon">
                         <span>${editIcon}</span>
                     </a>
-                    <span @click=${() => this.handleDelete(employee.id)} class="delete-icon">${deleteIcon}</span>
+                    <span @click=${() => this.handleDelete(employee)} class="delete-icon">${deleteIcon}</span>
                 </div>
               </td>
             </tr>

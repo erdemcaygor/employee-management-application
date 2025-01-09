@@ -39,8 +39,9 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@vaadin/dialog": "^24.6.1",
+    "@vaadin/notification": "^24.6.1",
     "@vaadin/router": "^2.0.0",
-    "@vaadin/vaadin-notification": "^23.5.11",
     "lit": "^3.2.0",
     "zustand": "^5.0.3"
   },
