@@ -66,12 +66,6 @@ export class EmployeeForm extends LitElement {
       errors.email = 'Please enter a valid email address';
     }
 
-    // Phone validation
-    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
-    if (!phoneRegex.test(this.formData.phone)) {
-      errors.phone = 'Phone format should be (XXX) XXX-XXXX';
-    }
-
     // Date validations
     const today = new Date();
     const birthDate = new Date(this.formData.dateOfBirth);
