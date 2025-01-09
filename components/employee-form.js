@@ -3,6 +3,8 @@ import { LitElement, html } from 'lit';
 import { formStyles, buttonStyles, inputStyles } from '../styles';
 import { t } from '../utils/i18n';
 import { useLanguageStore } from '../stores';
+import { DEPARTMENTS, POSITIONS } from '../stores/employee-store';
+
 export class EmployeeForm extends LitElement {
   static get properties() {
     return {
@@ -35,6 +37,7 @@ export class EmployeeForm extends LitElement {
 
   willUpdate(changedProperties) {
     if (changedProperties.has('employee') && this.employee) {
+      console.log(this.employee);
       this.isUpdateForm = true;
       this.formData = {
         firstName: this.employee.firstName || '',
@@ -78,7 +81,6 @@ export class EmployeeForm extends LitElement {
       errors.dateOfEmployment = 'Date of employment cannot be in the future';
     }
 
-    // Required field validations
     if (!this.formData.department) {
       errors.department = 'Please select a department';
     }
@@ -96,7 +98,7 @@ export class EmployeeForm extends LitElement {
       ...this.formData,
       [name]: value
     };
-    // Clear error when user starts typing
+    // Clear input error when user starts typing
     if (this.errors[name]) {
       this.errors = {
         ...this.errors,
@@ -219,10 +221,13 @@ export class EmployeeForm extends LitElement {
             required
           >
             <option value="">${t('selectDepartment')}</option>
-            <option value="Analytics">${t('analytics')}</option>
-            <option value="Tech">${t('tech')}</option>
+            ${DEPARTMENTS.map(dept => html`
+              <option value=${dept} ?selected=${this.formData.department === dept}>${t(dept.toLowerCase())}</option>
+            `)}
           </select>
-          ${this.errors.department ? html`<div class="error-message">${this.errors.department}</div>` : ''}
+          ${this.errors.department ? html`
+            <div class="error-message">${this.errors.department}</div>
+          ` : ''}
         </div>
 
         <div class="form-group">
@@ -236,11 +241,13 @@ export class EmployeeForm extends LitElement {
             required
           >
             <option value="">${t('selectPosition')}</option>
-            <option value="Junior">${t('junior')}</option>
-            <option value="Medior">${t('medior')}</option>
-            <option value="Senior">${t('senior')}</option>
+            ${POSITIONS.map(pos => html`
+              <option value=${pos} ?selected=${this.formData.position === pos}>${t(pos.toLowerCase())}</option>
+            `)}
           </select>
-          ${this.errors.position ? html`<div class="error-message">${this.errors.position}</div>` : ''}
+          ${this.errors.position ? html`
+            <div class="error-message">${this.errors.position}</div>
+          ` : ''}
         </div>
         </div>
         <div class="form-submit-btn">
